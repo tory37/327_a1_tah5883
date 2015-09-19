@@ -6,22 +6,21 @@ public class Player : MonoBehaviour {
 	public float speed;
 
 	[HideInInspector]
-	public Vector3 Direction;
+	public Vector3 Velocity;
 
 	void Awake()
 	{
-		Direction = transform.forward;
+		Velocity = Vector3.zero;
 	}
 
 	void Update()
 	{
-		float up = Input.GetAxis( "Vertical" ) * Time.deltaTime * speed;
+		float forward = Input.GetAxis( "Vertical" ) * Time.deltaTime * speed;
 		float right = Input.GetAxis( "Horizontal" ) * Time.deltaTime * speed;
 
-		Direction = (new Vector3( right, 0, up ));
+		Velocity = new Vector3(right, 0f, forward);
 
-		GetComponent<Rigidbody>().MovePosition( GetComponent<Rigidbody>().position +
-			new Vector3( right, 0f, up ) );
+		transform.Translate( Velocity );
 
 	}
 
