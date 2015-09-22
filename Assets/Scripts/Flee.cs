@@ -10,6 +10,6 @@ public class Flee : MonoBehaviour {
 	void Update()
 	{
 		Vector3 direction = transform.position - target.position;
-		GetComponent<Rigidbody>().MovePosition( GetComponent<Rigidbody>().position + (direction.normalized * fleeSpeed * Time.deltaTime) );
+		transform.Translate(direction.normalized * fleeSpeed * Time.deltaTime);
 	}
 }

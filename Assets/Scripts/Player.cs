@@ -20,6 +20,7 @@ public class Player : MonoBehaviour {
 
 		Velocity = new Vector3(right, 0f, forward);
 
+
 		transform.Translate( Velocity );
 
 	}
